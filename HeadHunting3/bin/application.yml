@@ -1,0 +1,24 @@
+spring:
+  # Preskace printanje bannera u konzolu ili log fileove prilikom pokretanja aplikacije
+  datasource:
+    # Konekcija prema bazi (kreirati bazu springdb i usera spring kao ownera baze na svom lokalnom PostgreSQL)
+    platform: postgresql
+    url: jdbc:postgresql://localhost:5432/HeadHuntingDB
+    username: postgres
+    password: josip123
+    # Incializacija baze
+    initialize: true # Change to false once created
+    schema: classpath:/sqls/schema-postgresql.sql
+    data: classpath:/sqls/data-postgresql.sql
+  jpa:
+    # Hibernate postavke
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  jackson:
+    serialization:
+      fail-on-empty-beans: false    
+ 
+server:
+  port: 8080
